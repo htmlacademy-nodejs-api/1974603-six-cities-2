@@ -1,7 +1,7 @@
 export type AuthorDataType = {
   name: string,
   email: string,
-  image?: string,
-  password: string,
-  type: string,
+  avatar?: string,
+  // password: string,
+  status: string,
 }
