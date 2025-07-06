@@ -7,8 +7,8 @@ export type RentalOfferType = {
   city: string,
   previewImage: string,
   images: string[],
-  isPremium: string,
-  isFavorites: string,
+  isPremiumOffer: string,
+  isFavoritesOffer: string,
   rating: number,
   houseType: string,
   roomsCount: number,
@@ -16,6 +16,5 @@ export type RentalOfferType = {
   price: number,
   facilities: string[],
   author: AuthorDataType,
-  // commentsCount: number,
   coordinates: number[],
 }

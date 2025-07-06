@@ -1,44 +1,36 @@
-import { readFileSync } from 'node:fs';
+import { createReadStream } from 'node:fs';
 import { FileReader } from './file-reader.interface.js';
-import { RentalOfferType } from '../../types/rental-offer-type.js';
+import EventEmitter from 'node:events';
 
-export class TSVFileReader implements FileReader {
-  private rawData = '';
+const CHUNK_SIZE = 16384;
 
-  constructor(
-    private readonly filename: string
-  ){}
+export class TSVFileReader extends EventEmitter implements FileReader {
 
-  public read(): void {
-    this.rawData = readFileSync(this.filename, {encoding: 'utf-8'});
+  constructor(private readonly filename: string) {
+    super();
   }
 
-  public toArray(): RentalOfferType[] {
-    if(!this.rawData) {
-      throw new Error('File was not read');
-    }
+  public async read(): Promise<void> {
+    const readStream = createReadStream(this.filename, {
+      highWaterMark: CHUNK_SIZE,
+      encoding: 'utf-8',
+    });
 
-    return this.rawData
-      .split('\n')
-      .filter((row) => row.trim().length > 0)
-      .map((line) => line.split('\t'))
-      .map(([title, description, createdDate, city, previewImage, images, isPremium, isFavorites, rating, houseType, roomsCount, guestsCount, price, facilities, name, email, avatar, status, coordinates]) => ({
-        title,
-        description,
-        createdDate: new Date(createdDate),
-        city,
-        previewImage,
-        images: images.split(' '),
-        isPremium,
-        isFavorites,
-        rating: Number(rating),
-        houseType,
-        roomsCount: Number(roomsCount),
-        guestsCount: Number(guestsCount),
-        price: Number.parseInt(price, 10),
-        facilities: facilities.split(','),
-        author: {name, email,avatar, status},
-        coordinates: coordinates.split(',').map((coordinate) => Number(coordinate)),
-      }));
+    let remainingData = '';
+    let nextLinePosition = -1;
+    let importedRowCount = 0;
+
+    for await (const chunk of readStream) {
+      remainingData += chunk.toString();
+
+      while ((nextLinePosition = remainingData.indexOf('\n')) >= 0) {
+        const completeRow = remainingData.slice(0, nextLinePosition + 1);
+        remainingData = remainingData.slice(++nextLinePosition);
+        importedRowCount++;
+
+        this.emit('line', completeRow);
+      }
+    }
+    this.emit('end', importedRowCount);
   }
 }
