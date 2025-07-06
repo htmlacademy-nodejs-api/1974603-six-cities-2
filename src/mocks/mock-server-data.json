@@ -1,0 +1,159 @@
+{
+  "api": {
+    "titles": [
+      "Сдаю квартиру",
+      "Сдаю дом",
+      "Сдаю комнату",
+      "Сдаю апартаменты"
+    ],
+    "descriptions": [
+      "Сдам квартиру 45 кв.м в центральном районе",
+      "Сдам дом 100 кв.м в 30 км. от центра города",
+      "Сдам утюную комнату в трехкомнатной квартире в 20 минутах от центра города",
+      "Сдам апартаменты в новостройке"
+    ],
+    "cities": [
+      "Paris",
+      "Amsterdam",
+      "Hamburg",
+      "Dusseldorf"
+    ],
+    "previewImages": [
+      	"https://photo-preview-1.jpg",
+      	"https://photo-preview-2.jpg",
+      	"https://photo-preview-3.jpg",
+      	"https://photo-preview-4.jpg"
+    ],
+    "images": [
+       [
+        "https://flat-image-1.jpg",
+        "https://flat-image-2.jpg",
+        "https://flat-image-3.jpg",
+        "https://flat-image-4.jpg",
+        "https://flat-image-5.jpg",
+        "https://flat-image-6.jpg"
+      ],
+      [
+        "https://house-image-1.jpg",
+        "https://house-image-2.jpg",
+        "https://house-image-3.jpg",
+        "https://house-image-4.jpg",
+        "https://house-image-5.jpg",
+        "https://house-image-6.jpg"
+      ],
+      [
+        "https://room-image-1.jpg",
+        "https://room-image-2.jpg",
+        "https://room-image-3.jpg",
+        "https://room-image-4.jpg",
+        "https://room-image-5.jpg",
+        "https://room-image-6.jpg"
+      ],
+      [
+        "https://apartments-image-1.jpg",
+        "https://apartments-image-2.jpg",
+        "https://apartments-image-3.jpg",
+        "https://apartments-image-4.jpg",
+        "https://apartments-image-5.jpg",
+        "https://apartments-image-6.jpg"
+      ]
+    ],
+    "isPremiumOffers": [
+      "true",
+      "true",
+      "false",
+      "true"
+    ],
+    "isFavoritesOffers": [
+      "false",
+      "true",
+      "true",
+      "false"
+    ],
+    "ratings": [
+      "3",
+      "4",
+      "5",
+      "4"
+    ],
+    "houseTypes": [
+      "apartment",
+      "house",
+      "room",
+      "apartment"
+    ],
+    "roomsCount": [
+      "3",
+      "5",
+      "1",
+      "2"
+    ],
+    "guestsCount": [
+      "5",
+      "7",
+      "2",
+      "4"
+    ],
+    "facilities": [
+      [
+        "Air conditioning",
+        "Washer"
+      ],
+      [
+        "Towels",
+        "Baby seat"
+      ],
+      [
+        "Laptop friendly",
+        "Fridge"
+      ],
+      [
+        "Washer",
+        "Fridge"
+      ]
+    ],
+    "authors": [
+      "Alex",
+      "Michelle",
+      "Daniel",
+      "Cillian"
+    ],
+    "emails": [
+      "AlexSnow@gmail.com",
+      "MichellePhillips@gmail.com",
+      "DanielJons@gmail.com",
+      "CillianSmith@gmail.com"
+    ],
+    "avatars": [
+      "alex-snow.jpg",
+      "michelle-phillips.jpg",
+      "daniel-jons.jpg",
+      "cillian-smith.jpg"
+    ],
+    "usersTypes": [
+      "pro",
+      "default",
+      "default",
+      "pro"
+    ],
+    "coordinates": [
+      [
+        "48.85661",
+        "2.351499"
+      ],
+      [
+        "52.370216",
+        "4.895168"
+      ],
+      [
+        "53.550341",
+        "10.000654"
+      ],
+      [
+        "51.225402",
+        "6.776314"
+      ]
+    ]
+  }
+
+}
